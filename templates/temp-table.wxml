@@ -1,0 +1,18 @@
+<template name="tempTable">
+  <scroll-view class="temp-table" scroll-y style="height: 100%;">
+    <view class="temp-tr temp-bg-w">
+      <view class="temp-th temp-width-20">星期</view>
+      <view class="temp-th temp-width-80">课程时间段</view>
+    </view>
+    <block wx:for="{{listData}}" wx:key="{{code}}">
+      <view class="temp-tr temp-bg-g" wx:if="{{index % 2 == 0}}">
+        <view class="temp-td temp-width-20">{{item.week}}</view>
+        <view class="temp-td temp-width-80">{{item.timeRanges}}</view>
+      </view>
+      <view class="temp-tr temp-bg-w" wx:else>
+        <view class="temp-td temp-width-20">{{item.week}}</view>
+        <view class="temp-td temp-width-80">{{item.timeRanges}}</view>
+      </view>
+    </block>
+  </scroll-view>
+</template>

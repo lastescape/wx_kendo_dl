@@ -1,0 +1,14 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/schedule/schedule",
+    "pages/play_video/play_video"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "嘉鸿武道",
+    "navigationBarTextStyle":"black"
+  }
+}

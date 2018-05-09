@@ -1,0 +1,123 @@
+/**index.wxss**/
+
+.index-flex-column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20rpx;
+}
+
+.index-flex-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  padding: 20rpx;
+  border-bottom: 1rpx dashed #b3b3b3;
+
+}
+
+.index-icon-image {
+  width: 191rpx;
+  height: 150rpx;
+  border: 0 solid #f00;
+}
+
+.text-subtitle {
+  font-style: normal;
+  font-size: small;
+  color: #b3b3b3;
+}
+
+.text-title {
+  font-style: italic;
+  font-size: x-large;
+  color: #000;
+}
+
+.icon-items {
+  width: 50rpx;
+  height: 50rpx;
+  border: 0 solid #f00;
+  border-radius: 50%;
+}
+
+.item-flex-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20rpx;
+  background-color: #dedede;
+  border-bottom: 1rpx dashed #b3b3b3;
+}
+
+.item-flex-1group-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.item-flex-2group-row {
+  display: flex;
+  flex-direction: row-reverse;
+  right: 20rpx;
+  align-items: center;
+}
+
+.text-item-content {
+  font-style: normal;
+  font-size: medium;
+  color: #000000;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 600rpx;
+}
+
+.view-block {
+  width: 1rpx;
+  height: 1rpx;
+}
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.usermotto {
+  margin-top: 200px;
+}
+
+.full-screen-tip {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;/*垂直居中*/
+  justify-content:space-around;/*水平居中*/
+  background-color: rgba(0,0,0,0.75);
+}
+
+.text-black-color {
+  font-style: normal;
+  font-size: medium;
+  color: #000000;
+}
+
+.tip-button-row {
+  justify-content: flex-start;
+  border-radius: 5px;
+  border: 2rpx solid #dedede;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+  padding-left: 80rpx;
+  padding-right: 80rpx;
+  background-color: #dedede;
+}
+
+.left-padding {
+  padding-left: 20rpx;
+}

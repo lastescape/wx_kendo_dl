@@ -1,0 +1,35 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="index-flex-row">
+    <view class="index-flex-column">
+      <text class="text-title">{{title}}</text>
+      <text class="text-subtitle">{{subTitle}}</text>
+    </view>
+    <image class="index-icon-image" mode="scaleToFill" src="{{src}}"></image>
+  </view>
+  <block wx:for="{{itemList}}" wx:key="id">
+    <view class="item-flex-row" id="item-{{item.id}}" bindtap="itemTap">
+      <view class="item-flex-1group-row">
+        <image class="icon-items" src="{{item.icon}}" />
+        <text class="text-item-content">{{item.content}}</text>
+      </view>
+      <view wx:if="{{!item.readOnly}}" class="item-flex-2group-row">
+        <image class="icon-items" src="{{item.arrow}}"></image>
+      </view>
+    </view>
+  </block>
+  <view class="full-screen-tip" hidden="{{tip_hidden_flag}}">
+    <view class="item-flex-1group-row tip-button-row" bindtap="pic_nav">
+      <image class="icon-items" src="../../resources/pic_icon.png" />
+      <text class="text-black-color left-padding">图片向导</text>
+    </view>    
+    <view class="item-flex-1group-row tip-button-row" bindtap="video_nav">
+      <image class="icon-items" src="../../resources/video_icon.png" />
+      <text class="text-black-color left-padding">视频向导</text>
+    </view>
+    <view class="item-flex-1group-row tip-button-row" bindtap="tip_close">
+      <image class="icon-items" src="../../resources/cancel_icon.png" />
+      <text class="text-black-color left-padding">关闭</text>
+    </view>
+  </view>
+</view>
