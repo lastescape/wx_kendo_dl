@@ -4,7 +4,12 @@ Page({
     curNav: 'left_0',
     scrollTop: 0,
     // 定义一个空数组，用来存放右侧滑栏中每一个商品分类的 Height
-    listHeight: ''
+    listHeight: '',
+    chooseSize: false,
+    animationData: {},
+    pay_product_image: '',
+    pay_product_title: '',
+    pay_product_price: ''
   },
   // 生命周期函数--监听页面初次渲染完成
   onReady: function () {
@@ -24,7 +29,7 @@ Page({
         // percent 为当前设备1rpx对应的px值
         var percent = res.windowWidth / 750;
         that.setData({
-          winHeight: res.windowHeight,
+          winHeight: res.windowHeight - 100 * percent,
           right_titleHeight: Number(right_titleRpxHeight * percent),
           right_contentHeight: Number(right_contentRpxHeight * percent),
           left_titleHeight: Number(left_titleRpxHeight * percent)
@@ -51,7 +56,7 @@ Page({
         // 循环 listChild1 中的每一项
         for (var item in listChild1) {
           // 把 listChild1 中每一项的键值用“：”（便于后期处理）分隔开，存入 names 中，数据格式见图‘names中的数据’
-          names += ":" + item;
+          names += ":" + 'left_' + item;
           // 计算右侧每一个分类的 Height 。
           // listChild1 下的每一个 item 中包含该分类的 title，所以 listChild1[item].length 需要减一 
           // 右侧每一个分类中每一行放两个商品，所以 this.data.right_contentHeight 除二
@@ -108,5 +113,89 @@ Page({
       // 左侧点击类样式
       curNav: id,
     })
+  },
+  //弹出支付窗口
+  chooseSezi: function (e) {
+    // 用that取代this，防止不必要的情况发生
+    var that = this;
+    // 创建一个动画实例
+    var animation = wx.createAnimation({
+      // 动画持续时间
+      duration: 500,
+      // 定义动画效果，当前是匀速
+      timingFunction: 'linear'
+    })
+    // 将该变量赋值给当前动画
+    that.animation = animation
+    // 先在y轴偏移，然后用step()完成一个动画
+    animation.translateY(200).step()
+    // 用setData改变当前动画
+    that.setData({
+      // 通过export()方法导出数据
+      animationData: animation.export(),
+      // 改变view里面的Wx：if
+      chooseSize: true
+    })
+    // 设置setTimeout来改变y轴偏移量，实现有感觉的滑动
+    setTimeout(function () {
+      animation.translateY(0).step()
+      that.setData({
+        animationData: animation.export()
+      })
+    }, 200)
+
+    var targetCode = e.currentTarget.dataset["pcode"];
+    for (var item1 in this.data.list) {
+      console.log(this.data.list);
+      for (var item2 in this.data.list[item1].productList){
+        console.log(this.data.list[item1].productList);
+        if (this.data.list[item1].productList[item2].product_code == targetCode) {
+          this.setData({
+            pay_product_image: this.data.list[item1].productList[item2].product_comment,
+            pay_product_title: this.data.list[item1].productList[item2].product_name,
+            pay_product_price: this.data.list[item1].productList[item2].product_price
+          });
+          targetCode = '';
+          break;
+        }
+      }
+      if (targetCode == '') {
+        break;
+      }
+    }
+  },
+  //隐藏支付窗口
+  hideModal: function (e) {
+    var that = this;
+    var animation = wx.createAnimation({
+      duration: 1000,
+      timingFunction: 'linear'
+    })
+    that.animation = animation
+    animation.translateY(200).step()
+    that.setData({
+      animationData: animation.export()
+
+    })
+    setTimeout(function () {
+      animation.translateY(0).step()
+      that.setData({
+        animationData: animation.export(),
+        chooseSize: false
+      })
+    }, 200)
+  },
+  scanCode: function (e) {
+    // 只允许从相机扫码
+    wx.scanCode({
+      onlyFromCamera: true,
+      success: (res) => {
+        console.log(res)
+        wx.navigateTo({
+          url: '../eshop_detail/eshop_detail',
+        })
+      }
+    });
   }
+
 })
