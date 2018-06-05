@@ -1,14 +1,15 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
     "pages/logs/logs",
     "pages/schedule/schedule",
-    "pages/play_video/play_video"
+    "pages/play_video/play_video",
+    "pages/eshop/eshop"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "嘉鸿武道",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black"
   }
 }

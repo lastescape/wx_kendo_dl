@@ -31,7 +31,14 @@
 		},
 		"miniprogram": {
 			"current": -1,
-			"list": []
+			"list": [
+				{
+					"id": 0,
+					"name": "eshop",
+					"pathName": "pages/eshop/eshop",
+					"query": ""
+				}
+			]
 		}
 	}
 }
