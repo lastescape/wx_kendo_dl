@@ -1,6 +1,6 @@
 <view class='eshop-flex-column'>
   <view class="eshop-top-row bc_red">
-    <image class='eshop-icon-image' src='../../resources/scanning.png'></image>
+    <image class='eshop-icon-image' src='../../resources/cart.png'></image>
     <text>无人商店</text>
     <image class='eshop-icon-image' src='../../resources/scanning.png' bindtap="scanCode"></image>
 
@@ -46,10 +46,21 @@
   <!-- 内容区  -->
   <view class='eshop-pay-flex_column'>
     <view class='pay-tip' wx:if="{{chooseSize}}" animation='{{animationData}}'>
-      <image class='eshop-pay-image' src='{{pay_product_image}}'/>
-      <text>{{pay_product_title}}</text>
-      <text>{{pay_product_price}}</text>
-      <button>确认支付</button>
+      <view class='eshop-pay-close-view'>
+        <image class='eshop-pay-close-icon-image' src='../../resources/wrong.png' bindtap="hideModal"></image>
+      </view>
+      <view class='eshop-pay-flex_row eshop-pay-item-flex-grow2'>
+        <image class='eshop-pay-image eshop-pay-item-flex-grow1' mode='aspectFit' src='{{pay_product_image}}' />
+        <view class='eshop-pay-item left-td eshop-pay-item-flex-grow1'>
+          <text class='note_item'>{{pay_product_title}}</text>
+        </view>
+      </view>
+      <view class='eshop-pay-flex_row eshop-pay-item-flex-grow1'>
+        <text class='eshop-pay-item eshop-pay-item-flex-grow1 td'>商品价格：</text>
+        <text class='eshop-pay-item eshop-pay-item-flex-grow1 td-red-large'>{{pay_product_price}}</text>
+        <text class='eshop-pay-item eshop-pay-item-flex-grow1 td'>元</text>
+      </view>
+      <button class='eshop-pay-flex_row eshop-pay-item-flex-grow1 td-red-large' type='primary'>确认支付</button>
     </view>
   </view>
 

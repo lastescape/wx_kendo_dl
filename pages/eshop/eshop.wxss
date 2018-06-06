@@ -54,7 +54,7 @@
   /*宽度75%，高度占满，并使用百分比布局*/  
   width: 75%;  
   height: 100%;   
-  padding: 20rpx;  
+  padding: 0rpx 10rpx 0rpx 10rpx;  
   box-sizing: border-box;  
   background-color: #f0f4f7;
   border-top: 1rpx solid #dedede;
@@ -165,7 +165,7 @@
   padding: 20rpx;
   display: flex;
   flex-direction: column;
-  justify-content:space-around;
+  justify-content:space-between;
   align-items:center;
 }
 
@@ -179,14 +179,83 @@
 }
 
 .eshop-pay-image {
-  mode: aspectFill;
-  lazy-load: true;
+  width: 0;
+  height: 100%;
+  margin-right: 30rpx;
+}
+
+.eshop-list-image {
   width: 200rpx;
   height: 200rpx;
 }
 
-.eshop-list-image {
-  mode: aspectFill;
-  width: 200rpx;
-  height: 200rpx;
+.eshop-pay-flex_row {
+  width: 100%;
+  height: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content:space-around;
+  align-items:center;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+}
+
+.eshop-pay-item {
+  width: 0;
+  height: 0;
+}
+
+.eshop-pay-item-flex-grow1 {
+  flex-grow: 1;
+}
+
+.eshop-pay-item-flex-grow2 {
+  flex-grow: 2;
+}
+
+.td {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.td-red-large {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-style: normal;
+  font-size:xx-large;
+  color: #ed1000;
+  border-color: #ed1000;
+}
+
+.note_item{
+    display: -webkit-box;
+    font-size:medium;
+    color:#000000;
+    word-break: break-all;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp:3;
+    overflow: hidden;
+    text-overflow:ellipsis;
+}
+
+.left-td {
+  display: flex;
+  align-items: center;
+  justify-content:flex-start;
+}
+
+.eshop-pay-close-view {
+  width: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+
+.eshop-pay-close-icon-image {
+  width: 30rpx;
+  height: 30rpx;
+  margin: 5rpx;
 }
