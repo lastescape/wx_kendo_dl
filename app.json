@@ -1,11 +1,6 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/logs/logs",
-    "pages/schedule/schedule",
-    "pages/play_video/play_video",
-    "pages/eshop/eshop",
-    "pages/eshop_detail/eshop_detail"
+    "pages/index/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

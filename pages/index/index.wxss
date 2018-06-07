@@ -1,93 +1,147 @@
-/**index.wxss**/
+.container {  
+  position: relative;  
+  width: 100%;  
+  height: 1220rpx;  
+  background-color: #f0f4f7;  
+  color: #939393;  
+}  
+  
+/*左侧栏主盒子*/  
+.nav_left{  
+  /*设置行内块级元素（没使用定位）*/  
+  display: inline-block;  
+  width: 100%;  
+  height: 100%;  
+  /*主盒子设置背景色为灰色*/  
+  background: #fff;  
+  text-align: center;  
+  /* position: fixed;  */
+  left: 0;
+  top: 0;
+  border-top: 1rpx solid #dedede;
+}  
+/*左侧栏list的item*/  
+.nav_left .nav_left_items{  
+  background: #fff;
+  /*每个高30px*/  
+  height: 80rpx;  
+  /*垂直居中*/  
+  line-height: 80rpx;  
+  /*再设上下padding增加高度，总高42px*/  
+  padding: 15rpx 0;  
+  /*只设下边线*/  
+  border-bottom: 1px solid #dedede;  
+  /*文字14px*/  
+  font-size: 29rpx;
+  color: #101010;  
+  font-weight: normal;
+}  
+/*左侧栏list的item被选中时*/  
+.nav_left .nav_left_items.active{  
+  /*背景色变成白色*/  
+   background: #f0f4f7;
+   color: #ed1000;   
+}  
+  
+/*右侧栏主盒子*/  
+.scroll_right{  
+  /*右侧盒子使用了绝对定位*/  
+  position: fixed;
+  top: 100rpx;  
+  right: 0; 
+  overflow: auto; 
+  flex: 1;  
+  /*宽度75%，高度占满，并使用百分比布局*/  
+  width: 75%;  
+  height: 100%;   
+  padding: 0rpx 10rpx 0rpx 10rpx;  
+  box-sizing: border-box;  
+  background-color: #f0f4f7;
+  border-top: 1rpx solid #dedede;
+} 
+.mink::after{
+  display:block;content:'';clear:both;
+}
+.jiul,.jiul image{
+  width: 100%;
+  height: 170rpx;
+}
+.minl{
+  font-size: 29rpx;
+  color: #777;
+  text-align: left;
+  line-height: 60rpx;
+  float: left;
+  background: #f0f4f7; 
+  width: 100%;
+  /* height: 50rpx;  */
+} 
+.mink{
+  width: 100%;
+  background: #fff;
+  height: 100%;
+}
+/*右侧栏list的item*/  
+.nav_right_items{  
+  /*浮动向左*/  
+   float: left;   
+  /*每个item设置宽度是33.33%*/  
+  width: 50%;  
+  /* height: 160rpx;   */
+  text-align: center; 
+  color: #4a4a4a; 
+  background: #fff;
+}  
+.nav_right_items image{  
+  /*被图片设置宽高*/  
+  width: 60px;  
+  height: 50px; 
+  margin-top: 15rpx; 
+}  
+.nav_right_items text{  
+  /*给text设成块级元素*/  
+  display: block;  
+  margin-top: 5rpx;  
+  margin-bottom: 10rpx;
+  font-size: 26rpx;  
+  /*设置文字溢出部分为...*/  
+  overflow: hidden;  
+  white-space: nowrap;  
+  text-overflow: ellipsis;  
+}
+/** 自定义其他点击态样式类 **/
+.other-navigator-hover{
+  background:#fff;
+}
 
-.index-flex-column {
+.scroll_left{
+  width:25%;
+  height:100%;
+  background:#fff;
+  text-align:center; 
+  position: fixed;
+  left: 0;top: 100rpx
+}
+
+.eshop-flex-column {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 20rpx;
 }
 
-.index-flex-row {
+.eshop-top-row {
   display: flex;
   flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
-  padding: 20rpx;
-  border-bottom: 1rpx dashed #b3b3b3;
-
-}
-
-.index-icon-image {
-  width: 191rpx;
-  height: 150rpx;
-  border: 0 solid #f00;
-}
-
-.text-subtitle {
-  font-style: normal;
-  font-size: small;
-  color: #b3b3b3;
-}
-
-.text-title {
-  font-style: italic;
-  font-size: x-large;
-  color: #000;
-}
-
-.icon-items {
-  width: 50rpx;
-  height: 50rpx;
-  border: 0 solid #f00;
-  border-radius: 50%;
-}
-
-.item-flex-row {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+  align-items:center;
   justify-content: space-between;
-  padding: 20rpx;
-  background-color: #dedede;
-  border-bottom: 1rpx dashed #b3b3b3;
 }
 
-.item-flex-1group-row {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
+.bc_red {background: red;width:100%; height: 100rpx;}
 
-.item-flex-2group-row {
-  display: flex;
-  flex-direction: row-reverse;
-  right: 20rpx;
-  align-items: center;
-}
-
-.text-item-content {
-  font-style: normal;
-  font-size: medium;
-  color: #000000;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  width: 600rpx;
-}
-
-.view-block {
-  width: 1rpx;
-  height: 1rpx;
-}
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
-}
-
-.usermotto {
-  margin-top: 200px;
+.eshop-icon-image {
+  width: 70rpx;
+  height: 70rpx;
+  margin: 15rpx;
 }
 
 .full-screen-tip {
@@ -101,23 +155,107 @@
   background-color: rgba(0,0,0,0.75);
 }
 
-.text-black-color {
+.pay-tip {
+  position:fixed;
+  width: 90%;
+  height: 50%;
+  bottom: 0;
+  background-color: #f0f4f7;
+  border-radius: 20rpx 20rpx 0rpx 0rpx;
+  padding: 20rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.eshop-pay-flex_column {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content:flex-end;
+  align-items:center;
+}
+
+.eshop-pay-image {
+  width: 0;
+  height: 100%;
+  margin-right: 30rpx;
+}
+
+.eshop-list-image {
+  width: 200rpx;
+  height: 200rpx;
+}
+
+.eshop-pay-flex_row {
+  width: 100%;
+  height: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content:space-around;
+  align-items:center;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+}
+
+.eshop-pay-item {
+  width: 0;
+  height: 0;
+}
+
+.eshop-pay-item-flex-grow1 {
+  flex-grow: 1;
+}
+
+.eshop-pay-item-flex-grow2 {
+  flex-grow: 2;
+}
+
+.td {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.td-red-large {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-style: normal;
-  font-size: medium;
-  color: #000000;
+  font-size:xx-large;
+  color: #ed1000;
+  border-color: #ed1000;
 }
 
-.tip-button-row {
+.note_item{
+    display: -webkit-box;
+    font-size:medium;
+    color:#000000;
+    word-break: break-all;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp:3;
+    overflow: hidden;
+    text-overflow:ellipsis;
+}
+
+.left-td {
+  display: flex;
+  align-items: center;
+  justify-content:flex-start;
+}
+
+.eshop-pay-close-view {
+  width: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: flex-end;
   justify-content: flex-start;
-  border-radius: 5px;
-  border: 2rpx solid #dedede;
-  padding-top: 10rpx;
-  padding-bottom: 10rpx;
-  padding-left: 80rpx;
-  padding-right: 80rpx;
-  background-color: #dedede;
 }
 
-.left-padding {
-  padding-left: 20rpx;
+.eshop-pay-close-icon-image {
+  width: 30rpx;
+  height: 30rpx;
+  margin: 5rpx;
 }

@@ -1,3 +1,0 @@
-<view class="index-flex-column">
-  <video id="myVideo" class="video-style" src="http://1256125960.vod2.myqcloud.com/0dd20464vodgzp1256125960/8a87cd267447398155430220962/ec8Q6fQTQa4A.mp4" danmu-list="{{danmuList}}" objectFit="{{fill}}" enable-danmu controls="{{false}}" enable-progress-gesture="{{false}}" autoplay="{{true}}" ></video>
-</view>
