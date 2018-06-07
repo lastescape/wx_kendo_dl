@@ -29,6 +29,7 @@
                   <image class='eshop-list-image' src="{{productName.product_comment}}"></image>
                   <view>
                     <text>{{productName.product_name}}</text>
+                    <text class='nav_right_items_list_price'>¥{{productName.product_price}}</text>
                   </view>
                 </view>
               </view>
@@ -60,7 +61,9 @@
         <text class='eshop-pay-item eshop-pay-item-flex-grow1 td-red-large'>{{pay_product_price}}</text>
         <text class='eshop-pay-item eshop-pay-item-flex-grow1 td'>元</text>
       </view>
-      <button class='eshop-pay-flex_row eshop-pay-item-flex-grow1 td-red-large' type='primary'>确认支付</button>
+      <view class='eshop-pay-flex_row eshop-pay-item-flex-grow1'>
+        <button class='td-red-large pay-button' type='primary' bindtap="goToPay">确认支付</button>
+      </view>
     </view>
   </view>
 

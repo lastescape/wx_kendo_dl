@@ -13,12 +13,15 @@ Page({
   },
   // 生命周期函数--监听页面初次渲染完成
   onReady: function () {
+    wx.showLoading({
+      title: '加载中',
+    })
     var that = this;
     // 定义右侧标题的 rpx 高度 和 px 高度
     var right_titleRpxHeight = 60;
     var right_titleHeight;
     // 定义右侧单个商品的 rpx 高度 和 px 高度
-    var right_contentRpxHeight = 180;
+    var right_contentRpxHeight = 320;
     var right_contentHeight;
     // 定义左侧单个tab的 rpx 高度 和 px 高度
     var left_titleRpxHeight = 140;
@@ -73,7 +76,8 @@ Page({
         var names = names.substring(1).split(':');
         that.setData({
           names: names
-        })
+        });
+        wx.hideLoading();
       }
     });
   },
@@ -118,37 +122,10 @@ Page({
   chooseSezi: function (e) {
     // 用that取代this，防止不必要的情况发生
     var that = this;
-    // 创建一个动画实例
-    var animation = wx.createAnimation({
-      // 动画持续时间
-      duration: 500,
-      // 定义动画效果，当前是匀速
-      timingFunction: 'linear'
-    })
-    // 将该变量赋值给当前动画
-    that.animation = animation
-    // 先在y轴偏移，然后用step()完成一个动画
-    animation.translateY(200).step()
-    // 用setData改变当前动画
-    that.setData({
-      // 通过export()方法导出数据
-      animationData: animation.export(),
-      // 改变view里面的Wx：if
-      chooseSize: true
-    })
-    // 设置setTimeout来改变y轴偏移量，实现有感觉的滑动
-    setTimeout(function () {
-      animation.translateY(0).step()
-      that.setData({
-        animationData: animation.export()
-      })
-    }, 200)
-
+    console.log(e);
     var targetCode = e.currentTarget.dataset["pcode"];
     for (var item1 in this.data.list) {
-      console.log(this.data.list);
       for (var item2 in this.data.list[item1].productList) {
-        console.log(this.data.list[item1].productList);
         if (this.data.list[item1].productList[item2].product_code == targetCode) {
           this.setData({
             pay_product_image: this.data.list[item1].productList[item2].product_comment,
@@ -162,6 +139,39 @@ Page({
       if (targetCode == '') {
         break;
       }
+    }
+    if (targetCode == '') {
+      // 创建一个动画实例
+      var animation = wx.createAnimation({
+        // 动画持续时间
+        duration: 500,
+        // 定义动画效果，当前是匀速
+        timingFunction: 'linear'
+      })
+      // 将该变量赋值给当前动画
+      that.animation = animation
+      // 先在y轴偏移，然后用step()完成一个动画
+      animation.translateY(200).step()
+      // 用setData改变当前动画
+      that.setData({
+        // 通过export()方法导出数据
+        animationData: animation.export(),
+        // 改变view里面的Wx：if
+        chooseSize: true
+      })
+      // 设置setTimeout来改变y轴偏移量，实现有感觉的滑动
+      setTimeout(function () {
+        animation.translateY(0).step()
+        that.setData({
+          animationData: animation.export()
+        })
+      }, 200);
+    } else {
+      wx.showToast({
+        title: '无此商品售卖',
+        icon: 'none',
+        duration: 2000
+      });
     }
   },
   //隐藏支付窗口
@@ -195,12 +205,20 @@ Page({
         var temp = {
           currentTarget: {
             dataset: {
-              pcode: res
+              pcode: res.result
             }
           }
         };
         that.chooseSezi(temp);
       }
     });
+  },
+  //支付逻辑
+  goToPay: function (e) {
+    wx.showToast({
+      title: '还没有支付功能,正在开发中',
+      icon: 'none',
+      duration: 2000
+    })
   }
 })
