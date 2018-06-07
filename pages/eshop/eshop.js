@@ -186,16 +186,21 @@ Page({
     }, 200)
   },
   scanCode: function (e) {
+    var that = this;
     // 只允许从相机扫码
     wx.scanCode({
       onlyFromCamera: true,
       success: (res) => {
-        console.log(res)
-        wx.navigateTo({
-          url: '../eshop_detail/eshop_detail',
-        })
+        console.log(res);
+        var temp = {
+          currentTarget: {
+            dataset: {
+              pcode: res
+            }
+          }
+        };
+        that.chooseSezi(temp);
       }
     });
   }
-
 })
